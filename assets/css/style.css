@@ -1,3 +1,24 @@
+:root {
+  --light: #f6f6f6;
+  --darkblue: #2c3e50;
+  --lightblue: #3498db;
+  --red: #e74c3c;
+  --lightred: #f9eae7;
+  --lightyellow: #fff5d1;
+}
+
+.header,
+.custom-modal-header,
+.custom-card-header,
+.btn-custom {
+  background-color: var(--darkblue);
+  color: var(--light);
+}
+
+.btn-custom:hover {
+  color: var(--lightblue);
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
@@ -13,4 +34,12 @@ body {
 
 .task-card:hover {
   cursor: grab;
+}
+
+.task-late {
+  background-color: var(--lightred);
+}
+
+.task-today {
+  background-color: var(--lightyellow);
 }
