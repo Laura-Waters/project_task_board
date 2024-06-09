@@ -3,16 +3,19 @@ const taskNameInputEl = $('#task-name-input');
 const taskDescriptionInputEl = $('#task-description-input');
 const taskDateInputEl = $('#taskDueDate'); 
 const taskFormEl = $('#task-form');
+const tasksDisplayEl = $('#lane'); 
+
+console.log(tasksDisplayEl);
 
 function saveTasksToStorage(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }; 
 
+let nextId = JSON.parse(localStorage.getItem("nextId"));
 
 // Retrieve tasks and nextId from localStorage
 function readTasksFromStorage() {
     let tasks = JSON.parse(localStorage.getItem("tasks"));
-    // let nextId = JSON.parse(localStorage.getItem("nextId"));
 
     if (!tasks) {
         tasks = [];
@@ -67,7 +70,6 @@ function createTaskCard(task) {
 function renderTaskList() {
     const tasks = readTasksFromStorage();
 
-    // ? Empty existing project cards out of the lanes
     const todoList = $('#todo-cards');
     todoList.empty();
 
@@ -77,7 +79,7 @@ function renderTaskList() {
     const doneList = $('#done-cards');
     doneList.empty();
 
-  // ? Loop through projects and create project cards for each status
+  
   for (let task of tasks) {
         if (task.status === 'to-do') {
         todoList.append(createTaskCard(task));
@@ -111,17 +113,17 @@ function handleDeleteTask() {
     const taskId = $(this).attr('data-task-id');
     const tasks = readTasksFromStorage();
 
-  // ? Remove project from the array. There is a method called `filter()` for this that is better suited which we will go over in a later activity. For now, we will use a `forEach()` loop to remove the project.
+  
   tasks.forEach((task) => {
         if (task.id === taskId) {
             tasks.splice(tasks.indexOf(task), 1);
         }
   });
 
-  // ? We will use our helper function to save the projects to localStorage
+  
   saveTasksToStorage(tasks);
 
-  // ? Here we use our other function to print projects back to the screen
+  
   renderTaskList();
 
 }
@@ -157,18 +159,16 @@ function handleAddTask(event){
 function handleDrop(event, ui) {
     const tasks = readTasksFromStorage();
 
-    const taskId = ui.draggable[0].dataset.taskId;
+    const cardId = ui.draggable[0].dataset.taskId;
 
     const newStatus = event.target.id; 
 
     for (let task of tasks) {
-        // ? Find the project card by the `id` and update the project status.
-        if (task.id === taskId) {
-          project.status = newStatus;
+        if (task.id === cardId) {
+          task.status = newStatus;
         }
     }
     
-    // ? Save the updated projects array to localStorage (overwritting the previous one) and render the new project data to the screen.
     localStorage.setItem('tasks', JSON.stringify(tasks));
     renderTaskList();
 
@@ -192,7 +192,6 @@ $(document).ready(function () {
 
 $('#task-form').on('submit', handleAddTask); 
 
-// $('#task-form').on('submit', function() {
-//     handleAddTask();
-//     $('#formModal').attr('style', 'none'); 
-// });  
+
+
+tasksDisplayEl.on('click', '.delete', handleDeleteTask);
