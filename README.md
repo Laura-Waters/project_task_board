@@ -3,7 +3,7 @@ https://github.com/Laura-Waters/project_task_board
 
 ## Description
 
-These webpages were created for use as a personal blog that can input and display users' posts.  
+This webpage was created to help a user organize multiple tasks, manage their state of progress, and track overall project progress. 
 
 ## Installation
 
@@ -11,7 +11,7 @@ N/A
 
 ## Usage
 
-To use the blog, you may use the form fields to input post content. When the form has been submitted, you will be redirected to the blog page where you will see your content formatted into a post. You may click the 'Toggle Theme' button to switch the color theme of the page. 
+To use the webpage, you may click the "Add Task" button to add a task to the board. The task's color will dynamically change depending on the task's due date. All cards will start in the 'to-do' column, but you may drag them to the other columns when they are 'in-progress' or 'done'. Once you are ready to remove a task from the board, click the 'Delete' button on its card. 
 
 ## Credits
 
@@ -23,10 +23,9 @@ Please refer to the LICENSE in the repo.
 
 ## Deployed Webpage
 
-https://laura-waters.github.io/module4_challenge/
+https://laura-waters.github.io/project_task_board/
 
-![formpage](https://github.com/Laura-Waters/module4_challenge/assets/168473293/bf93cc56-886b-46b8-ab4e-068b41eec915)
-![blogpage_1](https://github.com/Laura-Waters/module4_challenge/assets/168473293/03dcdef6-5eb5-441e-866c-241f70b60b2f) 
-![blogpage_2](https://github.com/Laura-Waters/module4_challenge/assets/168473293/5911c646-247a-4e76-8c78-9e2c768c5390)
+<img width="1477" alt="taskboard" src="https://github.com/Laura-Waters/project_task_board/assets/168473293/24ae8bb8-2949-436c-a340-5851a6eebf80">
+
 
 
