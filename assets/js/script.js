@@ -24,16 +24,11 @@ function readTasksFromStorage() {
     return tasks; 
 }; 
 
-// Todo: create a function to generate a unique task id
-// function generateTaskId() {
 
-// }
-
-// Todo: create a function to create a task card
 function createTaskCard(task) { 
     const taskCard = $('<div>')
         .addClass('card task-card draggable my-3')
-        .attr('data-task-id', task.nextId);
+        .attr('data-task-id', task.id);
     const cardHeader = $('<div>').addClass('card-header h4').text(task.name);
     const cardBody = $('<div>').addClass('card-body');
     const cardDescription = $('<p>').addClass('card-text').text(task.description);
@@ -41,7 +36,7 @@ function createTaskCard(task) {
     const cardDeleteBtn = $('<button>')
         .addClass('btn btn-danger delete')
         .text('Delete')
-        .attr('data-task-id', task.nextId);
+        .attr('data-task-id', task.id);
     cardDeleteBtn.on('click', handleDeleteTask);
 
 
@@ -120,10 +115,7 @@ function handleDeleteTask() {
         }
   });
 
-  
   saveTasksToStorage(tasks);
-
-  
   renderTaskList();
 
 }
@@ -176,7 +168,7 @@ function handleDrop(event, ui) {
 
 // Todo: when the page loads, render the task list, add event listeners, make lanes droppable, and make the due date field a date picker
 $(document).ready(function () {
-    // renderTaskList();
+    renderTaskList();
 
     $('#taskDueDate').datepicker({
         changeMonth: true,
@@ -191,7 +183,5 @@ $(document).ready(function () {
 });
 
 $('#task-form').on('submit', handleAddTask); 
-
-
 
 tasksDisplayEl.on('click', '.delete', handleDeleteTask);
