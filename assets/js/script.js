@@ -2,25 +2,21 @@
 const taskNameInputEl = $('#task-name-input');
 const taskDescriptionInputEl = $('#task-description-input');
 const taskDateInputEl = $('#taskDueDate'); 
-const taskFormEl = $('#task-form');
+const taskFormEl = $('#task-form'); 
 const tasksDisplayEl = $('#lane'); 
-
-console.log(tasksDisplayEl);
 
 function saveTasksToStorage(tasks) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }; 
 
-let nextId = JSON.parse(localStorage.getItem("nextId"));
 
-// Retrieve tasks and nextId from localStorage
+// Retrieve tasks from localStorage
 function readTasksFromStorage() {
     let tasks = JSON.parse(localStorage.getItem("tasks"));
 
     if (!tasks) {
         tasks = [];
     }
-
     return tasks; 
 }; 
 
@@ -144,6 +140,10 @@ function handleAddTask(event){
 
     renderTaskList(); 
 
+    taskNameInputEl.val('');
+    taskDescriptionInputEl.val('');
+    taskDateInputEl.val(''); 
+
 }; 
 
 
@@ -175,13 +175,12 @@ $(document).ready(function () {
         changeYear: true,
     });
 
-    // ? Make lanes droppable
+    // Make lanes droppable
     $('.lane').droppable({
         accept: '.draggable',
         drop: handleDrop,
     });
 });
 
-$('#task-form').on('submit', handleAddTask); 
-
+taskFormEl.on('submit', handleAddTask); 
 tasksDisplayEl.on('click', '.delete', handleDeleteTask);
