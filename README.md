@@ -25,7 +25,9 @@ Please refer to the LICENSE in the repo.
 
 https://laura-waters.github.io/project_task_board/
 
-<img width="1477" alt="taskboard" src="https://github.com/Laura-Waters/project_task_board/assets/168473293/24ae8bb8-2949-436c-a340-5851a6eebf80">
+<img width="1263" alt="dashboard" src="https://github.com/Laura-Waters/project_task_board/assets/168473293/dfe4f244-934c-42a3-a15b-abec84c90fa0">
+<img width="1259" alt="modal" src="https://github.com/Laura-Waters/project_task_board/assets/168473293/e284c832-e724-4b04-a9c0-2b50abf47e6b">
+
 
 
 
